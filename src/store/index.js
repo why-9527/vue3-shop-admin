@@ -55,7 +55,7 @@ const store = createStore({
                 getInfo().then(res => {
                     commit("SET_USERINFO", res)
                     commit('SET_MENUS', res.menus)
-                    commit('SET_ROLENAMES', res.roleNames)
+                    commit('SET_ROLENAMES', res.ruleNames)
                     resolve(res)
                 }).catch(err => {
                     reject(err)

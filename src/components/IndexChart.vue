@@ -45,8 +45,10 @@ const options = [
 let myChart = null
 onMounted(() => {
   let chartDom = document.getElementById('chart');
-  myChart = echarts.init(chartDom);
-  getData()
+  if (chartDom) {
+    myChart = echarts.init(chartDom);
+    getData()
+  }
 })
 
 onBeforeUnmount(() => {
@@ -89,7 +91,11 @@ async function getData() {
   myChart.setOption(option)
 }
 
-useResizeObserver(chartRef, () => myChart.resize())
+useResizeObserver(chartRef, () => {
+  if (myChart) {
+    myChart.resize()
+  }
+})
 </script>
 
 <style scoped>
