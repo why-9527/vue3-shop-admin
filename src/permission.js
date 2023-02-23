@@ -3,7 +3,6 @@ import store from "~/store"
 import {getCookies} from "~/tools/auth"
 import {showLoading, hiddenLoading} from "~/tools/utils"
 
-
 let hasGetInfo = false
 // 全局路由守卫
 router.beforeEach(async (to, from, next) => {

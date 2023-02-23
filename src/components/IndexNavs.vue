@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5">
     <el-row :gutter="20">
-      <el-col :span="3" v-for="(item, index) in iconNavs" :key="index">
+      <el-col :span="3" :xs="12" :sm="6" :md="3" v-for="(item, index) in iconNavs" :key="index">
         <el-card shadow="hover" @click="$router.push(item.path)">
           <div class="flex flex-col justify-center items-center cursor-pointer">
             <el-icon :size="25">
