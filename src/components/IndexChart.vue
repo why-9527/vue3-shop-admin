@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div>
     <el-card shadow="hover">
       <template #header>
         <div class="flex justify-between items-center">

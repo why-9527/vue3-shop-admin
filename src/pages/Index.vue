@@ -41,12 +41,13 @@
       </el-col>
     </el-row>
     <IndexNavs></IndexNavs>
-    <el-row :gutter="20">
+    <el-row :gutter="20" class="mt-5">
       <el-col :span="12">
         <IndexChart></IndexChart>
       </el-col>
-      <el-col :span="12">
-
+      <el-col :span="12" style="display: flex;" class="flex-col justify-between">
+        <IndexCard title="店铺及商品提示" tip="店铺及商品提示" :btns="goods"></IndexCard>
+        <IndexCard title="交易提示" tip="需要立即处理的交易订单" :btns="order"></IndexCard>
       </el-col>
     </el-row>
   </div>
@@ -54,9 +55,10 @@
 
 <script setup>
 import {ref} from "vue"
-import {getStatistics1} from "~/api/admin.js"
+import {getStatistics1, getStatistics2} from "~/api/admin.js"
 import IndexNavs from "~/components/IndexNavs.vue"
 import IndexChart from "~/components/IndexChart.vue"
+import IndexCard from "~/components/IndexCard.vue"
 import CountTo from "~/components/CountTo.vue"
 
 const panels = ref([])
@@ -64,6 +66,13 @@ const panels = ref([])
 getStatistics1().then(res => {
   // console.log('res=====>', res)
   panels.value = res.panels
+})
+
+const goods = ref([])
+const order = ref([])
+getStatistics2().then(res => {
+  goods.value = res.goods
+  order.value = res.order
 })
 </script>
 
